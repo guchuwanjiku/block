@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number Blocks Applet</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
     <style>
       body {
         margin: 0;
@@ -95,7 +95,9 @@
         <span id="rod-value">1</span>
       </div>
 
-      <div id="narrator-text">Use the slider to explore multiplication!</div>
+      <div id="narrator-text">
+        Adjust the slider to practice multiplying numbers!
+      </div>
 
       <div class="navigation">
         <button id="prev-btn">Previous</button>
@@ -107,11 +109,11 @@
     <script>
       const lang_en = {
         steps: [
-          'Start with unit blocks.',
-          'Combine them into a rod of 2.',
-          'Now join 2 rods to make 4.',
-          "Great! That's multiplication!",
-          'Try making 6, 8, or 10!',
+          'Begin with unit blocks, each worth 1.',
+          'Put two unit blocks together to make a rod of 2.',
+          'Join two rods to build a block of 4.',
+          'Awesome! You’re multiplying!',
+          'Can you build 6, 8, or even 10?',
         ],
         default: 'Use the slider to explore multiplication!',
       }
@@ -156,17 +158,12 @@
       function renderBlocks(count) {
         container.innerHTML = ''
         for (let i = 0; i < count; i++) {
-          const block = document.createElementNS(
-            'http://www.w3.org/2000/svg',
-            'svg'
-          )
-          block.setAttribute('width', '60')
-          block.setAttribute('height', '60')
-          block.innerHTML = `
-          <rect width="60" height="60" rx="8" ry="8" fill="#00BCD4" stroke="#007e8c" stroke-width="3"/>
-          <text x="30" y="35" text-anchor="middle" font-size="24" fill="white" font-family="Arial">2</text>
-        `
-          container.appendChild(block)
+          const img = document.createElement('img')
+          img.src = 'assets/block.svg' // Offline SVG file
+          img.alt = 'Block'
+          img.width = 60
+          img.height = 60
+          container.appendChild(img)
         }
       }
 

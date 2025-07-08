@@ -1,0 +1,20 @@
+function renderBlocks(count) {
+  container.innerHTML = '';
+  if ([2, 4, 6, 10].includes(count)) {
+    const rodImg = document.createElement('img');
+    rodImg.src = `assets/rod-${count}.svg`;
+    rodImg.alt = `Rod of ${count}`;
+    rodImg.style.width = `${count * 60}px`;
+    rodImg.style.height = `60px`;
+    container.appendChild(rodImg);
+  } else {
+    for (let i = 0; i < count; i++) {
+      const img = document.createElement('img');
+      img.src = 'assets/block.svg';
+      img.alt = 'Block';
+      img.width = 60;
+      img.height = 60;
+      container.appendChild(img);
+    }
+  }
+}
